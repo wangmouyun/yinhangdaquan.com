@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>银行大全</title>
+  <meta name="description" content="银行大全：收录各大银行名称、客服电话、官方网站及相关信息。快速查找银行信息。">
+  <meta name="keywords" content="银行大全, 银行, 客服电话, 银行网站, yinhangdaquan">
+  <meta name="author" content="王先生">
+  <link rel="canonical" href="https://www.yinhangdaquan.com/">
+  <style>
+    :root{--bg:#ffffff;--card:#fbfbfb;--muted:#666;--accent:#2b6cb0}
+    html,body{height:100%;margin:0;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;background:var(--bg);color:#111}
+    .container{max-width:980px;margin:28px auto;padding:0 18px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#2b6cb0,#38a169);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 16px;color:var(--muted)}
+    .search{display:flex;gap:8px;margin:10px 0}
+    .search input{flex:1;padding:10px 12px;border:1px solid #e6e6e6;border-radius:6px;font-size:15px}
+    .search button{padding:10px 14px;border-radius:6px;border:0;background:var(--accent);color:#fff;font-weight:600}
+    main{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .card{background:var(--card);border:1px solid #eee;padding:12px;border-radius:8px;min-height:72px;display:flex;flex-direction:column;justify-content:space-between}
+    .card h3{margin:0;font-size:16px}
+    .card p{margin:8px 0 0;color:var(--muted);font-size:13px}
+    .tag{font-size:12px;color:var(--muted)}
+    .ad-slot{margin:18px 0;padding:12px;border:1px dashed #ddd;border-radius:8px;text-align:center;color:var(--muted);background:#fff}
+    footer{margin:36px 0 18px;text-align:center;color:var(--muted);font-size:13px}
+    @media (max-width:520px){.logo{width:48px;height:48px;font-size:16px}.container{margin:16px 12px}}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3466429528731007"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">银</div>
+        <div>
+          <h1>银行大全</h1>
+          <div class="tag">yinhangdaquan.com • 银行名称、客服电话、官方网站速查</div>
+        </div>
+      </div>
+      <div class="tag"><a href="https://www.wangxiansheng.com" title="王先生">王先生</a></div>
+    </header>
+
+    <p class="lead">在此输入银行名称，快速查找对应的客服电话与官方网站。页面为单页模板，已预留广告位。请在发布前将AdSense代码替换到标记处。</p>
+
+    <div class="search" role="search">
+      <input id="q" autocomplete="off" placeholder="搜索银行名称（示例：中国银行、招商银行）">
+      <button id="btnSearch">搜索</button>
+    </div>
+
+    <!-- 广告位（顶部） -->
+    <div class="ad-slot" id="ad-top">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3466429528731007"
+           data-ad-slot="8414245325"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <main id="results" aria-live="polite">
+      <!-- 银行卡由 JavaScript 插入 -->
+    </main>
+
+    <!-- 广告位（中部） -->
+    <div class="ad-slot" id="ad-mid">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3466429528731007"
+           data-ad-slot="8414245325"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <div style="text-align:center;margin-top:16px">
+      <button id="loadMore" class="chip">加载更多</button>
+    </div>
+
+    <footer>
+      <div style="margin-top:8px">&copy;2025 <a href="https://www.wangxiansheng.com" title="王先生">王先生</a> 版权所有</div>
+    </footer>
+  </div>
+
+  <script>
+    const sample = [
+      {name:'中国银行', phone:'95566', website:'https://www.boc.cn'},
+      {name:'工商银行', phone:'95588', website:'https://www.icbc.com.cn'},
+      {name:'建设银行', phone:'95533', website:'https://www.ccb.com'},
+      {name:'农业银行', phone:'95599', website:'https://www.abchina.com'},
+      {name:'交通银行', phone:'95559', website:'https://www.bankcomm.com'},
+      {name:'招商银行', phone:'95555', website:'https://www.cmbchina.com'},
+      {name:'中信银行', phone:'95558', website:'https://www.citicbank.com'},
+      {name:'浦发银行', phone:'95528', website:'https://www.spdb.com.cn'},
+      {name:'兴业银行', phone:'95561', website:'https://www.cib.com.cn'},
+      {name:'光大银行', phone:'95595', website:'https://www.cebbank.com'},
+      {name:'民生银行', phone:'95568', website:'https://www.cmbc.com.cn'},
+      {name:'平安银行', phone:'95511', website:'https://bank.pingan.com'},
+      {name:'广发银行', phone:'95508', website:'https://www.cgbchina.com.cn'},
+      {name:'华夏银行', phone:'95577', website:'https://www.hxb.com.cn'},
+      {name:'北京银行', phone:'95526', website:'https://www.bankofbeijing.com.cn'},
+      {name:'南京银行', phone:'025-968888', website:'https://www.njcb.com.cn'},
+      {name:'上海银行', phone:'021-968889', website:'https://www.bankofshanghai.com'},
+      {name:'杭州银行', phone:'0571-96888', website:'https://www.hzbank.com.cn'},
+      {name:'宁波银行', phone:'0574-96188', website:'https://www.nbcb.com.cn'},
+      {name:'天津银行', phone:'022-96789', website:'https://www.tjbank.com.cn'}
+    ];
+
+    const results = document.getElementById('results');
+    let shown = 0; const PAGE = 10;
+
+    function renderChunk() {
+      const chunk = sample.slice(shown, shown + PAGE);
+      chunk.forEach(it => {
+        const el = document.createElement('article'); el.className='card';
+        el.innerHTML = `<h3>${escapeHtml(it.name)}</h3><p>客服电话：${escapeHtml(it.phone)}</p><p>官方网站：<a href='${it.website}' target='_blank'>${it.website}</a></p>`;
+        results.appendChild(el);
+      });
+      shown += chunk.length;
+      if(shown >= sample.length) document.getElementById('loadMore').style.display='none';
+    }
+
+    function escapeHtml(s){ return (''+s).replace(/[&<>\"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+    renderChunk();
+
+    document.getElementById('loadMore').addEventListener('click', ()=>renderChunk());
+    document.getElementById('btnSearch').addEventListener('click', doSearch);
+    document.getElementById('q').addEventListener('keydown', e=>{ if(e.key==='Enter') doSearch(); });
+
+    function doSearch(){
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      results.innerHTML='';
+      if(!q){ shown=0; renderChunk(); return; }
+      const found = sample.filter(it => it.name.toLowerCase().includes(q));
+      if(found.length===0){ results.innerHTML='<div class="card"><h3>未找到匹配</h3><p class="tag">尝试其他银行名称或检查拼写。</p></div>'; return; }
+      found.forEach(it => {
+        const el = document.createElement('article'); el.className='card';
+        el.innerHTML = `<h3>${escapeHtml(it.name)}</h3><p>客服电话：${escapeHtml(it.phone)}</p><p>官方网站：<a href='${it.website}' target='_blank'>${it.website}</a></p>`;
+        results.appendChild(el);
+      });
+      document.getElementById('loadMore').style.display='none';
+    }
+  </script>
+</body>
+</html>
